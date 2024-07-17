@@ -8,6 +8,7 @@ import TodoList from './components/app4/app1';
 import TodoList2 from './components/app4/app2';
 import TodoList3 from './components/app4/app3';
 import Profile2 from './components/app5/app2';
+import Profile5 from './components/app5/app3';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
       <TodoList3/>
       <hr />
       <Profile2/>
+      <hr />
+      <Profile5/>
 
 
 
