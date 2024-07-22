@@ -1,11 +1,11 @@
 import './App.css'
-import ListRenedring from './Components/rendring'
+import {List_Rendering} from './Components/Rendring'
 
 function App() {
 
   return (
     <>
-        <ListRenedring/>
+        <List_Rendering/>
     </>
   )
 }
