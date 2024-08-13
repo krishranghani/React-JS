@@ -1,5 +1,5 @@
 import React from 'react';
-import ClickCounterGame from './components/ClickCounterGame';
+import ClickCounterGame from './components/ClickCounterGame.jsx';
 import './index.css';
 
 function App() {
