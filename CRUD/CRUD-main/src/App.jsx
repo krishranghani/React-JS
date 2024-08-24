@@ -1,6 +1,5 @@
 import { useState } from "react";
-import CustomTable from "./Components/CustomTable";
-import UserTable2 from "./pages/CustomTable2";
+import UserTable from "./pages/CustomTable";
 import "./App.css";
 
 function App() {
@@ -8,8 +7,7 @@ function App() {
 
   return (
     <>
-      {/* <CustomTable/> */}
-      <UserTable2 />
+      <UserTable />
     </>
   );
 }
