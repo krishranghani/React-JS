@@ -1,0 +1,35 @@
+/* Selects all elements with a target attribute */
+[target] {
+    color: blue;
+}
+
+/* Selects all elements with target="_blank" */
+[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Selects all elements with a title attribute that contains a space-separated list of words, one of which is "flower" */
+[title~="flower"] {
+    background-color: yellow;
+}
+
+/* Selects all elements with a lang attribute value starting with "en" */
+[lang|="en"] {
+    border: 2px solid blue;
+}
+
+/* Selects all <a> elements with a href attribute value starting with "https" */
+a[href^="https"] {
+    text-decoration: underline;
+}
+
+/* Selects all <a> elements with a href attribute value ending with ".pdf" */
+a[href$=".pdf"] {
+    color: green;
+    /* font-size:20px; */
+}
+
+/* Selects all <a> elements with a href attribute value containing the substring "w3schools" */
+a[href*="w3schools"] {
+    background-color: lightgreen;
+}
