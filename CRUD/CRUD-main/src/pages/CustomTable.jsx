@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Navbar } from "../Components/Navbar";
-import Footer from "../Components/fotter";
+// import { Navbar } from "../Components/Navbar";
+// import Footer from "../Components/fotter";
 
 export default function UserTable2() {
   const [users, setUsers] = useState([]);
@@ -64,7 +64,7 @@ export default function UserTable2() {
   return (
     <>
       <div className="p-4">
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <h1 className="text-3xl font-bold mb-4 text-center">Users</h1> */}
         <hr />
         <br />
@@ -137,7 +137,7 @@ export default function UserTable2() {
           </button>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

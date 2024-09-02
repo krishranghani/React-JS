@@ -1,15 +1,15 @@
-import { useState } from "react";
-import UserTable from "./pages/CustomTable";
-import "./App.css";
+import './App.css'
+import Layout from './pages/Layout'
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <UserTable />
+    <div className=' bg-slate-300 h-lvh'>
+      <Layout/>
+    </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
