@@ -1,7 +1,54 @@
 import React from 'react'
 import { ArrowLeft } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-const Edit = () => {
+const Add = () => {
+
+  const navigate = useNavigate()
+
+  const [student, setStudents] = useState({
+    id: "1",
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    age: "",
+    location: "",
+    image: ""
+  })
+
+  useEffect(() => {
+    const lastId = localStorage.getItem('lastStudentId' , "")
+    if(lastId){
+      setStudents((prevState) => ({...prevState , id:`${parseInt(lastId) + 1}`}))
+      // console.log(setStudents , 'setStudent');
+    }
+  } , [])
+
+
+  const handleChange = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setStudents({ ...student, image: reader.result })
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  const onSubmitStudet = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:3000/student', student)
+      .then(() => {
+        localStorage.setItem('lastStudentId' , student.id)
+        navigate('/')
+      })
+  }
+
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
@@ -21,7 +68,7 @@ const Edit = () => {
             </svg>
           </div>
           <h2 className="text-center text-2xl font-bold leading-tight text-black">
-            Edit Students
+            ADD Students
           </h2>
           <p className="mt-2 text-center text-base text-gray-600">
             Already have an account?{' '}
@@ -33,19 +80,37 @@ const Edit = () => {
               Login In
             </a>
           </p>
-          <form action="#" method="POST" className="mt-8">
+          <form method="POST" className="mt-8" onSubmit={onSubmitStudet}>
             <div className="space-y-5">
               <div>
-                <label htmlFor="name" className="text-base font-medium text-gray-900">
+                <label htmlFor="firstname" className="text-base font-medium text-gray-900">
                   {' '}
-                  Full Name{' '}
+                  First name{' '}
                 </label>
                 <div className="mt-2">
                   <input
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
-                    placeholder="Full Name"
-                    id="name"
+                    placeholder="First Name"
+                    id="firstname"
+                    name='firstname'
+                    onChange={(e) => setStudents({ ...student, firstname: e.target.value })}
+                  ></input>
+                </div>
+              </div>
+              <div>
+                <label htmlFor="lastname" className="text-base font-medium text-gray-900">
+                  {' '}
+                  Last name{' '}
+                </label>
+                <div className="mt-2">
+                  <input
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    placeholder="Last Name"
+                    id="lastname"
+                    name='lastname'
+                    onChange={(e) => setStudents({ ...student, lastname: e.target.value })}
                   ></input>
                 </div>
               </div>
@@ -60,12 +125,14 @@ const Edit = () => {
                     type="email"
                     placeholder="Email"
                     id="email"
+                    name='email'
+                    onChange={(e) => setStudents({ ...student, email: e.target.value })}
                   ></input>
                 </div>
               </div>
               <div>
                 <div className="flex items-center justify-between">
-                  <label htmlFor="password" className="text-base font-medium text-gray-900">
+                  <label htmlFor="number" className="text-base font-medium text-gray-900">
                     {' '}
                     PhoneNo{' '}
                   </label>
@@ -76,11 +143,13 @@ const Edit = () => {
                     type="number"
                     placeholder="PhoneNo"
                     id="number"
+                    name='number'
+                    onChange={(e) => setStudents({ ...student, phone: e.target.value })}
                   ></input>
                 </div>
               </div>
               <div>
-                <label htmlFor="name" className="text-base font-medium text-gray-900">
+                <label htmlFor="age" className="text-base font-medium text-gray-900">
                   {' '}
                   Age{' '}
                 </label>
@@ -89,12 +158,30 @@ const Edit = () => {
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="number"
                     placeholder="Age"
-                    id="number"
+                    id="age"
+                    name='age'
+                    onChange={(e) => setStudents({ ...student, age: e.target.value })}
                   ></input>
                 </div>
               </div>
               <div>
-                <label htmlFor="name" className="text-base font-medium text-gray-900">
+                <label htmlFor="location" className="text-base font-medium text-gray-900">
+                  Location
+                </label>
+                <div className="mt-2">
+                  <input
+                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    type="text"
+                    placeholder="Location"
+                    id="location"
+                    name="location"
+                    onChange={(e) => setStudents({ ...student, location: e.target.value })}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="file" className="text-base font-medium text-gray-900">
                   {' '}
                   Image{' '}
                 </label>
@@ -103,6 +190,7 @@ const Edit = () => {
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="file"
                     id="file"
+                    onChange={handleChange}
                   ></input>
                 </div>
               </div>
@@ -114,10 +202,10 @@ const Edit = () => {
                   Go Back <ArrowLeft className="ml-2" size={16} />
                 </button>
                 <button
-                  type="button"
+                  type="submit"
                   className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                 >
-                  Edit Students
+                  ADD Students
                 </button>
               </div>
             </div>
@@ -128,4 +216,4 @@ const Edit = () => {
   )
 }
 
-export default Edit
+export default Add
