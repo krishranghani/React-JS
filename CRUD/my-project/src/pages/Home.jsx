@@ -84,7 +84,7 @@ const Home = () => {
               <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{item.location}</td>
               <td className="px-4 py-4 whitespace-nowrap text-sm font-medium flex justify-start items-center">
                 <div
-                  className="relative inline-block"
+                  className="relative inline-block mt-4"
                   onMouseEnter={() => handleMouseEnter(item.id, 'view')}
                   onMouseLeave={() => handleMouseLeave(item.id)}
                 >
@@ -100,7 +100,7 @@ const Home = () => {
 
                 <Link to={`/edit/${item.id}`}>
                   <div
-                    className="relative inline-block"
+                    className="relative inline-block mt-4"
                     onMouseEnter={() => handleMouseEnter(item.id, 'edit')}
                     onMouseLeave={() => handleMouseLeave(item.id)}
                   >
@@ -116,7 +116,7 @@ const Home = () => {
                 </Link>
 
                 <div
-                  className="relative inline-block"
+                  className="relative inline-block mt-4"
                   onMouseEnter={() => handleMouseEnter(item.id, 'delete')}
                   onMouseLeave={() => handleMouseLeave(item.id)}
                 >

@@ -1,3 +1,48 @@
 {
-  "student": []
+  "student": [
+    {
+      "id": "1",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "phone": "",
+      "age": "",
+      "gender": "",
+      "location": "",
+      "image": ""
+    },
+    {
+      "id": "2",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "phone": "",
+      "age": "",
+      "gender": "",
+      "location": "",
+      "image": ""
+    },
+    {
+      "id": "3",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "phone": "",
+      "age": "",
+      "gender": "",
+      "location": "",
+      "image": ""
+    },
+    {
+      "id": "4",
+      "firstname": "",
+      "lastname": "",
+      "email": "",
+      "phone": "",
+      "age": "",
+      "gender": "",
+      "location": "",
+      "image": ""
+    }
+  ]
 }

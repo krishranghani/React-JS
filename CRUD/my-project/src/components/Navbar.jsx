@@ -10,12 +10,7 @@ const menuItems = [
     {
         name: 'ADD',
         to: '/add',
-    },
-    {
-        name: 'EDIT',
-        to: '/edit',
-    },
-
+    }
 ]
 
 

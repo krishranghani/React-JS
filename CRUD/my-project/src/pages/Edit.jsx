@@ -54,8 +54,8 @@ const Edit = () => {
 
   return (
     <section>
-      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+      <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24 ">
+        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md p-3 rounded-2xl">
           <div className="mb-2 flex justify-center">
             <svg
               width="50"
@@ -97,6 +97,7 @@ const Edit = () => {
                     placeholder="First Name"
                     id="firstname"
                     name='firstname'
+                    value={student.firstname}
                     onChange={(e) => setStudents({ ...student, firstname: e.target.value })}
                   ></input>
                 </div>
@@ -113,6 +114,7 @@ const Edit = () => {
                     placeholder="Last Name"
                     id="lastname"
                     name='lastname'
+                    value={student.lastname}
                     onChange={(e) => setStudents({ ...student, lastname: e.target.value })}
                   ></input>
                 </div>
@@ -180,6 +182,7 @@ const Edit = () => {
                     placeholder="Location"
                     id="location"
                     name="location"
+                    value={student.location}
                     onChange={(e) => setStudents({ ...student, location: e.target.value })}
                   />
                 </div>
@@ -203,14 +206,14 @@ const Edit = () => {
                 <Link to='/'>
                   <button
                     type="button"
-                    className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80 text-nowrap"
+                    className="inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7 text-white bg-[#000] hover:bg-[rgb(37,173,35)] duration-700 text-nowrap"
                   >
-                    Go Back <ArrowLeft className="ml-2" size={16} />
+                    <ArrowLeft className="mr-2" size={16}  />Go Back
                   </button>
                 </Link>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  className="inline-flex w-full items-center justify-center rounded-md  px-3.5 py-2.5 font-semibold leading-7 text-white bg-[#000] hover:bg-[rgb(0,60,255)] duration-700"
                 >
                   Edit Students
                 </button>

@@ -16,6 +16,7 @@ const Add = () => {
     email: "",
     phone: "",
     age: "",
+    gender: "",
     location: "",
     image: ""
   })
@@ -52,7 +53,7 @@ const Add = () => {
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
+        <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md p-3 rounded-2xl">
           <div className="mb-2 flex justify-center">
             <svg
               width="50"
@@ -149,6 +150,40 @@ const Add = () => {
                 </div>
               </div>
               <div>
+                <label htmlFor="gender" className="text-base font-medium text-gray-900">
+                  Gender
+                </label>
+                <div className="mt-2 flex space-x-4">
+                  <div className="flex items-center">
+                    <input
+                      className="h-4 w-4 text-black focus:ring-gray-400 border-gray-300"
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="Male"
+                      onChange={(e) => setStudents({ ...student, gender: e.target.value })}
+                    />
+                    <label htmlFor="male" className="ml-2 block text-sm font-medium text-gray-900">
+                      Male
+                    </label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      className="h-4 w-4 text-black focus:ring-gray-400 border-gray-300"
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="Female"
+                      onChange={(e) => setStudents({ ...student, gender: e.target.value })}
+                    />
+                    <label htmlFor="female" className="ml-2 block text-sm font-medium text-gray-900">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="age" className="text-base font-medium text-gray-900">
                   {' '}
                   Age{' '}
@@ -197,13 +232,13 @@ const Add = () => {
               <div className='flex space-x-12'>
                 <button
                   type="button"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  className="inline-flex w-full items-center justify-center rounded-md  px-3.5 py-2.5 font-semibold leading-7 text-white bg-[#000] hover:bg-[rgb(37,173,35)] duration-700"
                 >
-                  Go Back <ArrowLeft className="ml-2" size={16} />
+                   <ArrowLeft className="mr-2" size={16}  />Go Back
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  className="inline-flex w-full items-center justify-center rounded-md  px-3.5 py-2.5 font-semibold leading-7 text-white bg-[#000] hover:bg-[rgb(0,60,255)] duration-700"
                 >
                   ADD Students
                 </button>
