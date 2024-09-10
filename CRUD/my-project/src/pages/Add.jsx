@@ -150,40 +150,6 @@ const Add = () => {
                 </div>
               </div>
               <div>
-                <label htmlFor="gender" className="text-base font-medium text-gray-900">
-                  Gender
-                </label>
-                <div className="mt-2 flex space-x-4">
-                  <div className="flex items-center">
-                    <input
-                      className="h-4 w-4 text-black focus:ring-gray-400 border-gray-300"
-                      type="radio"
-                      id="male"
-                      name="gender"
-                      value="Male"
-                      onChange={(e) => setStudents({ ...student, gender: e.target.value })}
-                    />
-                    <label htmlFor="male" className="ml-2 block text-sm font-medium text-gray-900">
-                      Male
-                    </label>
-                  </div>
-                  <div className="flex items-center">
-                    <input
-                      className="h-4 w-4 text-black focus:ring-gray-400 border-gray-300"
-                      type="radio"
-                      id="female"
-                      name="gender"
-                      value="Female"
-                      onChange={(e) => setStudents({ ...student, gender: e.target.value })}
-                    />
-                    <label htmlFor="female" className="ml-2 block text-sm font-medium text-gray-900">
-                      Female
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div>
                 <label htmlFor="age" className="text-base font-medium text-gray-900">
                   {' '}
                   Age{' '}
