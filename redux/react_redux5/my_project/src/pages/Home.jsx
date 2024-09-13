@@ -1,62 +1,65 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { add_cart, remove_cart, empty_cart } from '../redux/ReduxCart/CartAction'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { add_cart } from "../redux/reduxCart/CartAction";
+import { add_wishlist } from "../redux/ReduxWhishList/WhishlistAction";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Home = () => {
-
-  const [product, setProduct] = useState([])
-
-  console.log('homeProduct', product);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    const res = axios.get('http://localhost:3000/ecomall')
-      .then((res) => {
-        setProduct(res.data)
-        console.log('homedata', res.data);
-      })
-  }, [])
+    axios.get("http://localhost:3000/ecomall").then((res) => {
+      setProduct(res.data);
+    });
+  }, []);
 
-  const productData = useSelector((state => state.cart))
-  const dispatch = useDispatch()
-
-  console.log('productData', productData);
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <div className='flex flex-wrap justify-around'>
-        {
-          product.map((item) => {
-            return (
-              <div>
-                <div className="w-[300px] rounded-md border">
-                  <img
-                    src={item.image}
-                    alt="Laptop"
-                    className="h-[200px] w-full rounded-md object-cover"
-                  />
-                  <div className="p-4">
-                    <h1 className="text-lg font-semibold line-clamp-1">{item.title}</h1>
-                    <p className="mt-3 text-sm text-gray-600 line-clamp-2">
-                      {item.description}
-                    </p>
-                    <button
-                      onClick={() => dispatch(add_cart(item))}
-                      type="button"
-                      className="mt-4 rounded-sm bg-black px-2.5 py-1 text-[10px] font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      Add To Cart
-                    </button>
-                  </div>
+
+      <div className="flex flex-wrap justify-center mt-5 gap-2">
+        {product.map((item) => {
+          return (
+            <div key={item.id}>
+              <div className="w-[300px] h-[400px] rounded-md border shadow-md flex flex-col">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-[200px] w-full object-cover rounded-t-md"
+                />
+                <div className="p-4 flex-grow">
+                  <h1 className="text-lg font-semibold line-clamp-1">
+                    {item.title}
+                  </h1>
+                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="flex justify-between p-4">
+                  <button
+                    onClick={() => dispatch(add_cart(item))}
+                    type="button"
+                    className="px-4 py-2 rounded-full bg-gray-800 text-white"
+                  >
+                    Add To Cart
+                  </button>
+                  <button
+                    onClick={() => dispatch(add_wishlist(item))}
+                    type="button"
+                    className="px-8 py-2 rounded-full bg-gray-800 text-white"
+                  >
+                    Wishlist
+                  </button>
                 </div>
               </div>
-            )
-          })
-        }
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

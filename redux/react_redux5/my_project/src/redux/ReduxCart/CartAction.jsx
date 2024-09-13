@@ -8,11 +8,11 @@ export function add_cart(data){
     }
 }
 
-export function remove_cart(data){
-    return{
-        type:REMOVE_TO_CART,
-        data
-    }
+export function remove_cart(id) {
+    return {
+        type: REMOVE_TO_CART,
+        data: { id }
+    };
 }
 
 export function empty_cart(data){

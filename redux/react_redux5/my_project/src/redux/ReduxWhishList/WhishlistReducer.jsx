@@ -1,25 +1,30 @@
-import { ADD_TO_WISHLIST, REMOVE_TO_WISHLIST, EMPTY_WISHLIST, WISHLIST_TO_CART } from "../Constant";
+import {
+  ADD_TO_WISHLIST,
+  REMOVE_TO_WISHLIST,
+  EMPTY_WISHLIST,
+  WISHLIST_TO_CART,
+} from "../Constant";
 
-const WhishlistReducer = (data = [], action) => {
-    switch(action.type){
-        case ADD_TO_WISHLIST: return{
-            data,
-            numOfProduct:data.numOfProduct - 1
-        }
-        case REMOVE_TO_WISHLIST: return{
-            data,
-            numOfProduct:data.numOfProduct - 1
-        }
-        case EMPTY_WISHLIST: return{
-            data,
-            numOfProduct:data.numOfProduct - 1
-        }
-        case WISHLIST_TO_CART: return{
-            data,
-            numOfProduct:data.numOfProduct - 1
-        }
-        default:return data
-    }
-}
+const WishlistReducer = (wishdata = [], action) => {
+  switch (action.type) {
+    case ADD_TO_WISHLIST:
+      console.log("wishlistdata", action);
+      return [action.wishdata, ...wishdata];
 
-export default WhishlistReducer
+    case REMOVE_TO_WISHLIST:
+      console.log("removeTowishlistData", action);
+      return wishdata.filter((item) => item.id !== action.wishdata.id);
+
+    case EMPTY_WISHLIST:
+      console.log("empty Wishlist", action);
+      return [];
+
+    case WISHLIST_TO_CART:
+      return {};
+
+    default:
+      return wishdata;
+  }
+};
+
+export default WishlistReducer;
