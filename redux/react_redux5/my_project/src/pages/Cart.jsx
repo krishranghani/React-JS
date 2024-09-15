@@ -1,13 +1,19 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { remove_cart, empty_cart } from '../redux/reduxCart/CartAction'
+import { remove_cart, empty_cart } from '../redux/ReduxCart/CartAction'
 
 const Cart = () => {
 
-  const data1 = useSelector(state => state.cart)
-  const dispatch = useDispatch()
+  // const data1 = useSelector(state => state.cart)
+  // const dispatch = useDispatch()
 
-  console.log('cartData', data1);
+  // console.log('cartData', data1);
+
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  console.log('cart data', cartItems);
+
 
   return (
     <div>
@@ -27,26 +33,38 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              data1.map((item) => {
-                return (
-                  <tr className='border' key={item.id}>
-                    <td>
-                      <img src={item.image} alt="cartimage" className='h-auto w-28' />
-                    </td>
-                    <td className=''>
-                      <h2 className='text-wrap w-28 mx-auto'>{item.title}</h2>
-                    </td>
-                    <td>
-                      <p>${item.price}</p>
-                    </td>
-                    <td>
-                      <button onClick={() => dispatch(remove_cart(item.id))} className='btn'>Remove</button>
-                    </td>
-                  </tr>
-                )
-              })
-            }
+          {cartItems.length > 0 ? (
+            cartItems.map((item, index) => (
+                <tr className="border" key={`${item.id}-${index}`}>
+                  {/* Combined id and index for unique key */}
+                  <td>
+                    <img
+                      src={item.image}
+                      alt="wishlistimage"
+                      className="h-auto w-28"
+                    />
+                  </td>
+                  <td className="">
+                    <h2 className="text-wrap w-28 mx-auto">{item.title}</h2>
+                  </td>
+                  <td>
+                    <p className="line-clamp-2">{item.description}</p>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => dispatch(remove_cart(item.id))}
+                      className="btn"
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4">Your wishlist is empty.</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

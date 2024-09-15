@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { add_cart } from "../redux/reduxCart/CartAction";
+import { add_cart } from "../redux/ReduxCart/CartAction";
 import { add_wishlist } from "../redux/ReduxWhishList/WhishlistAction";
 import axios from "axios";
 import { useState, useEffect } from "react";

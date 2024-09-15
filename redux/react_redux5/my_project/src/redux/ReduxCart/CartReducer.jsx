@@ -1,37 +1,42 @@
 import { ADD_TO_CART, REMOVE_TO_CART, EMPTY_CART, CART_TO_WISHLIST, INCREMENT, DECREMENT } from "../Constant";
 
-const CartReducer = (data = [], action) => {
-    switch (action.type) {
-        case ADD_TO_CART:
-            console.log('addToCartData', action);
-            return [action.data, ...data];
+const initialState = {
+  cartItems: []
+};
 
-        case REMOVE_TO_CART:
-            console.log('removeToCartData', action);
-            return data.filter(item => item.id !== action.data.id);
+const CartReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_TO_CART:
+      console.log('CartData', action);
+      return {
+        ...state,
+        cartItems: [action.data, ...state.cartItems]
+      };
 
-        case EMPTY_CART:
-            console.log('emptyCart', action);
-            return [];
+    case REMOVE_TO_CART:
+      console.log('removeToCartData', action);
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(item => item.id !== action.data.id)
+      };
 
-        case CART_TO_WISHLIST:
-            return {
-                ...state
-            };
+    case EMPTY_CART:
+      console.log('emptyCart', action);
+      return {
+        ...state,
+        cartItems: []
+      };
 
-        case INCREMENT:
-            return {
-                ...state
-            };
+    case CART_TO_WISHLIST:
+    case INCREMENT:
+    case DECREMENT:
+      return {
+        ...state
+      };
 
-        case DECREMENT:
-            return {
-                ...state
-            };
-
-        default:
-            return data;
-    }
+    default:
+      return state;
+  }
 };
 
 export default CartReducer;
