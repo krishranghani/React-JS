@@ -1,178 +1,93 @@
 import React, { useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { IoIosLogIn } from "react-icons/io";
+import img1 from "../assets/logo.jpg"
+// import "./Navbar.css";
 import { useSelector } from "react-redux";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { Menu, X, ShoppingCart, Heart, User, ChevronDown } from "lucide-react"; // Added ChevronDown for dropdown icon
+import { useAuth0 } from "@auth0/auth0-react";
 
-const menuItems = [
-  { name: "Home", to: "/" },
-  { name: "AboutUS", to: "/aboutus" },
-  { name: "Contact", to: "/Contact" },
-  { name: "Product", to: "/product" },
-];
+export const Navbar = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false); // New state for profile dropdown
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const result = useSelector((state) => state.cart);
+  const resultWish = useSelector((state) => state.wishlist);
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const toggleMenu = (menu) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
   };
-  const toggleProfile = () => {
-    setIsProfileOpen(!isProfileOpen); // Toggle profile dropdown
-  };
-
-  // Retrieve cart and wishlist counts from Redux
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
 
   return (
-    <div className="relative w-full bg-gradient-to-r from-orange-500 via-white to-green-600">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
-        <div className="inline-flex items-center space-x-2">
-          <NavLink to="/" className="font-bold text-xl">
-            DevUI
-          </NavLink>
-        </div>
-
-        <div className="hidden lg:block">
-          <ul className="inline-flex space-x-8">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-sm font-semibold text-[#0068C8] underline"
-                      : "text-sm font-semibold text-gray-800 hover:text-[#0068C8]"
-                  }
-                >
-                  {item.name}
+    <>
+      <div className="w-full p-6 flex justify-around items-center z-50 sticky top-0 bg-[#fff] border-b-4 border-[#4229ff]">
+        <div className="container">
+          <div className="flex justify-between">
+            <div>
+              <NavLink to="/">
+              <img
+                      src={img1}
+                      alt="logo"
+                      className="size-20 w-48"
+                    />
+              </NavLink>
+            </div>
+            <div className="flex items-center justify-between ml-5">
+              <div className="space-x-12">
+                <NavLink to="/" className="page">
+                  Home
                 </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+                <NavLink to="/contact" className="page">
+                  Contact
+                </NavLink>
 
-        <div className="flex space-x-4 items-center">
-          <NavLink to="/whishlist" className="relative">
-            <Heart className="w-6 h-6" />
-            {wishlistItems.length > 0 && (
-              <span className="absolute top-0 right-0 text-xs bg-black text-white rounded-full px-1">
-                {wishlistItems.length}
-              </span>
-            )}
-          </NavLink>
-
-          <NavLink to="/cart" className="relative">
-            <ShoppingCart className="w-6 h-6" />
-            {cartItems.length > 0 && (
-              <span className="absolute top-0 right-0 text-xs bg-black text-white rounded-full px-1">
-                {cartItems.length}
-              </span>
-            )}
-          </NavLink>
-
-          {/* Profile Dropdown */}
-          <div className="relative">
-            <button
-              onClick={toggleProfile}
-              className="flex items-center space-x-2 focus:outline-none"
-            >
-              {/* <User className="w-4 h-4" /> */}
-              <ChevronDown className="w-6 h-6" />
-            </button>
-            {isProfileOpen && (
-              <div className="absolute right-0 mt-2 w-48 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
-                <div className="py-1">
-                  <NavLink
-                    to="/profile"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setIsProfileOpen(false)} // Close dropdown on click
-                  >
-                    Profile
-                  </NavLink>
-                  <NavLink
-                    to="/login"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={() => setIsProfileOpen(false)} // Close dropdown on click
-                  >
-                    Login
-                  </NavLink>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="lg:hidden">
-            <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
-          </div>
-        </div>
-
-        {isMenuOpen && (
-          <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                  <div className="inline-flex items-center space-x-2">
-                    <NavLink to="/" className="font-bold">
-                      DevUI
-                    </NavLink>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={toggleMenu}
-                    className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                  >
-                    <X className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-
-                <div className="mt-6">
-                  <nav className="grid gap-y-4">
-                    {menuItems.map((item) => (
-                      <NavLink
-                        key={item.name}
-                        to={item.to}
-                        className={({ isActive }) =>
-                          isActive
-                            ? "-m-3 flex items-center rounded-md p-3 text-sm font-semibold text-white"
-                            : "-m-3 flex items-center rounded-md p-3 text-sm font-semibold text-[#0068C8] hover:bg-gray-50"
-                        }
-                      >
-                        {item.name}
-                      </NavLink>
-                    ))}
-                  </nav>
-                </div>
-
-                <div className="flex mt-6 space-x-4">
-                  <NavLink to="/whishlist" className="relative">
-                    <Heart className="w-6 h-6" />
-                    {wishlistItems.length > 0 && (
-                      <span className="absolute top-0 right-0 text-xs bg-black text-white rounded-full px-1">
-                        {wishlistItems.length}
-                      </span>
-                    )}
-                  </NavLink>
-
-                  <NavLink to="/cart" className="relative">
-                    <ShoppingCart className="w-6 h-6" />
-                    {cartItems.length > 0 && (
-                      <span className="absolute top-0 right-0 text-xs bg-black text-white rounded-full px-1">
-                        {cartItems.length}
-                      </span>
-                    )}
-                  </NavLink>
-
-                  <NavLink to="/login">
-                    <User className="w-6 h-6" />
-                  </NavLink>
-                </div>
+                <NavLink to="/aboutUs" className="page">
+                  About Us
+                </NavLink>
+                <NavLink to="/product" className="product">
+                  Product
+                </NavLink>
               </div>
             </div>
+            <div className="flex items-center space-x-4 mr-1">
+              <div className="relative">
+                <NavLink to="/cart">
+                  <FaShoppingCart className="text-2xl text-gray-950 hover:text-[#ff0000] mr-5" />
+                  <span className="absolute top-0 right-5 transform translate-x-1/2 -translate-y-1/2 border-2 rounded-full px-1 text-[#fff] bg-[#ff0000] text-xs">
+                    {result.length}
+                  </span>
+                </NavLink>
+              </div>
+              <div className="relative">
+                <NavLink to="/whishlist">
+                  <FaHeart className="text-2xl text-gray-950 hover:text-[#ff0000] mr-5" />
+                  <span className="absolute top-0 right-5 transform translate-x-1/2 -translate-y-1/2 border-2 rounded-full px-1 text-[#fff] bg-[#ff0000] text-xs">
+                    {resultWish.length}
+                  </span>
+                </NavLink>
+              </div>
+
+           
+              {isAuthenticated ? (
+                <div className="relative">
+                  <NavLink to="/profile">
+                    <CgProfile className="text-3xl text-gray-950 hover:text-[#ff0000] mr-5" />
+                  </NavLink>
+                </div>
+              ) : (
+                <div className="relative">
+                  <button onClick={() => loginWithRedirect()}>
+                    <IoIosLogIn className="text-2xl text-gray-950 hover:text-[#ff0000] mr-5" />
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        )}
+        </div>
       </div>
       <Outlet />
-    </div>
+    </>
   );
-}
+};
+

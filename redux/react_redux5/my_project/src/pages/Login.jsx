@@ -11,28 +11,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px]">
-            <img
-            src={backgroundImage}
-            alt="About Us Background"
-            className="w-full h-full object-cover"
-            />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex flex-col text-center items-center justify-center text-white mt-10 sm:mt-20 md:mt-28">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
-              My Account
-            </h1>
-            <p className="mt-2 text-sm sm:text-base">
-              <a href="#" className="text-[#000] hover:text-[#ff0000]">
-                Home
-              </a>{" "}
-              <span className="text-black">/</span>
-              <span className="text-red-500">My Account</span>
-            </p>
-          </div>
-        </div>
-      </div> */}
-
       {/* Login Forms */}
       <div className="flex flex-col md:flex-row justify-center gap-5 w-full p-4 sm:p-10 mt-6 sm:mt-10">
         {/* Login */}
@@ -126,7 +104,6 @@ const Login = () => {
         </div>
       </div>
 
-      {/* <Footer2 /> */}
     </div>
   );
 };

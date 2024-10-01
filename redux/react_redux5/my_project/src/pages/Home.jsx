@@ -23,7 +23,7 @@ const Home = () => {
         {product.map((item) => {
           return (
             <div key={item.id}>
-              <div className="w-[300px] h-[400px] rounded-md border shadow-md flex flex-col">
+              <div className="w-[300px] h-[300px] rounded-md border shadow-md flex flex-col">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -37,7 +37,7 @@ const Home = () => {
                     {item.description}
                   </p>
                 </div>
-                <div className="flex justify-between p-4">
+                {/* <div className="flex justify-between p-4">
                   <button
                     onClick={() => dispatch(add_cart(item))}
                     type="button"
@@ -52,7 +52,7 @@ const Home = () => {
                   >
                     Wishlist
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           );

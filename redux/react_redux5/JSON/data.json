@@ -1,0 +1,226 @@
+{
+
+    "user":[
+        {
+          "id": "1",
+          "firstname": "Krish",
+          "lastname": "Ranghani",
+          "email": "krishranghani@gmail.com",
+          "phone": "234567890",
+          "age": "21",
+          "gender": "Male",
+          "location": "Surat",
+          "image": "https://randomuser.me/api/portraits/men/1.jpg"
+        },
+        {
+          "id": "2",
+          "firstname": "Aisha",
+          "lastname": "Sharma",
+          "email": "aishasharma@gmail.com",
+          "phone": "987654321",
+          "age": "24",
+          "gender": "Female",
+          "location": "Delhi",
+          "image": "https://randomuser.me/api/portraits/women/2.jpg"
+        },
+        {
+          "id": "3",
+          "firstname": "Ravi",
+          "lastname": "Patel",
+          "email": "ravipatel@gmail.com",
+          "phone": "456789012",
+          "age": "27",
+          "gender": "Male",
+          "location": "Ahmedabad",
+          "image": "https://randomuser.me/api/portraits/men/3.jpg"
+        },
+        {
+          "id": "4",
+          "firstname": "Sanya",
+          "lastname": "Verma",
+          "email": "sanyaverma@gmail.com",
+          "phone": "876543210",
+          "age": "22",
+          "gender": "Female",
+          "location": "Mumbai",
+          "image": "https://randomuser.me/api/portraits/women/4.jpg"
+        },
+        {
+          "id": "5",
+          "firstname": "Vikas",
+          "lastname": "Mehta",
+          "email": "vikasmehta@gmail.com",
+          "phone": "345678901",
+          "age": "30",
+          "gender": "Male",
+          "location": "Chennai",
+          "image": "https://randomuser.me/api/portraits/men/5.jpg"
+        },
+        {
+          "id": "6",
+          "firstname": "Anjali",
+          "lastname": "Rao",
+          "email": "anjalirao@gmail.com",
+          "phone": "654789012",
+          "age": "26",
+          "gender": "Female",
+          "location": "Bangalore",
+          "image": "https://randomuser.me/api/portraits/women/6.jpg"
+        },
+        {
+          "id": "7",
+          "firstname": "Rahul",
+          "lastname": "Nair",
+          "email": "rahulnair@gmail.com",
+          "phone": "123456789",
+          "age": "28",
+          "gender": "Male",
+          "location": "Kochi",
+          "image": "https://randomuser.me/api/portraits/men/7.jpg"
+        },
+        {
+          "id": "8",
+          "firstname": "Neha",
+          "lastname": "Kapoor",
+          "email": "nehakapoor@gmail.com",
+          "phone": "234567890",
+          "age": "29",
+          "gender": "Female",
+          "location": "Jaipur",
+          "image": "https://randomuser.me/api/portraits/women/8.jpg"
+        },
+        {
+          "id": "9",
+          "firstname": "Amit",
+          "lastname": "Singh",
+          "email": "amitsingh@gmail.com",
+          "phone": "345678901",
+          "age": "25",
+          "gender": "Male",
+          "location": "Lucknow",
+          "image": "https://randomuser.me/api/portraits/men/9.jpg"
+        },
+        {
+          "id": "10",
+          "firstname": "Pooja",
+          "lastname": "Gupta",
+          "email": "poojagupta@gmail.com",
+          "phone": "456789012",
+          "age": "31",
+          "gender": "Female",
+          "location": "Kolkata",
+          "image": "https://randomuser.me/api/portraits/women/10.jpg"
+        },
+        {
+          "id": "11",
+          "firstname": "Rohit",
+          "lastname": "Desai",
+          "email": "rohitdesai@gmail.com",
+          "phone": "567890123",
+          "age": "34",
+          "gender": "Male",
+          "location": "Pune",
+          "image": "https://randomuser.me/api/portraits/men/11.jpg"
+        },
+        {
+          "id": "12",
+          "firstname": "Sneha",
+          "lastname": "Pandey",
+          "email": "snehapandey@gmail.com",
+          "phone": "678901234",
+          "age": "27",
+          "gender": "Female",
+          "location": "Hyderabad",
+          "image": "https://randomuser.me/api/portraits/women/12.jpg"
+        },
+        {
+          "id": "13",
+          "firstname": "Vikram",
+          "lastname": "Joshi",
+          "email": "vikramjoshi@gmail.com",
+          "phone": "789012345",
+          "age": "33",
+          "gender": "Male",
+          "location": "Nagpur",
+          "image": "https://randomuser.me/api/portraits/men/13.jpg"
+        },
+        {
+          "id": "14",
+          "firstname": "Kiran",
+          "lastname": "Reddy",
+          "email": "kiranreddy@gmail.com",
+          "phone": "890123456",
+          "age": "26",
+          "gender": "Female",
+          "location": "Vizag",
+          "image": "https://randomuser.me/api/portraits/women/14.jpg"
+        },
+        {
+          "id": "15",
+          "firstname": "Arjun",
+          "lastname": "Mishra",
+          "email": "arjunmishra@gmail.com",
+          "phone": "901234567",
+          "age": "28",
+          "gender": "Male",
+          "location": "Patna",
+          "image": "https://randomuser.me/api/portraits/men/15.jpg"
+        },
+        {
+          "id": "16",
+          "firstname": "Nidhi",
+          "lastname": "Iyer",
+          "email": "nidhiiyer@gmail.com",
+          "phone": "012345678",
+          "age": "24",
+          "gender": "Female",
+          "location": "Coimbatore",
+          "image": "https://randomuser.me/api/portraits/women/16.jpg"
+        },
+        {
+          "id": "17",
+          "firstname": "Rakesh",
+          "lastname": "Malhotra",
+          "email": "rakeshmalhotra@gmail.com",
+          "phone": "123456789",
+          "age": "32",
+          "gender": "Male",
+          "location": "Indore",
+          "image": "https://randomuser.me/api/portraits/men/17.jpg"
+        },
+        {
+          "id": "18",
+          "firstname": "Priya",
+          "lastname": "Sinha",
+          "email": "priyasinha@gmail.com",
+          "phone": "234567890",
+          "age": "23",
+          "gender": "Female",
+          "location": "Bhopal",
+          "image": "https://randomuser.me/api/portraits/women/18.jpg"
+        },
+        {
+          "id": "19",
+          "firstname": "Sahil",
+          "lastname": "Khanna",
+          "email": "sahilkhanna@gmail.com",
+          "phone": "345678901",
+          "age": "29",
+          "gender": "Male",
+          "location": "Chandigarh",
+          "image": "https://randomuser.me/api/portraits/men/19.jpg"
+        },
+        {
+          "id": "20",
+          "firstname": "Anita",
+          "lastname": "Patil",
+          "email": "anitapatil@gmail.com",
+          "phone": "456789012",
+          "age": "27",
+          "gender": "Female",
+          "location": "Thane",
+          "image": "https://randomuser.me/api/portraits/women/20.jpg"
+        }
+      ]
+}
+  
