@@ -101,10 +101,24 @@ $(function(){
     $('.animate').animate({
     //   'right':'500px',
       'left':'500px',
-    //   'top':'500px',
+      'top':'500px',
       border:'2px solid'
     } , 5000).css('border' , '2px solid black')
     $('.animate').animate()
   })
 })
+
+// -----------------------------------------------------
+
+// $(function(){
+//   $('#btn2').click(function(){
+//     $('.animate2').animate({
+//       // 'right':'500px',
+//       'left':'500px',
+//       'bottom':'700px',
+//       border:'2px solid'
+//     } , 5000).css('border' , '2px solid black')
+//     $('.animate').animate()
+//   })
+// })
 
